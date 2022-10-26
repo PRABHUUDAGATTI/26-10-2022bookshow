@@ -1,0 +1,58 @@
+﻿
+@*@{
+    ViewData["Title"] = "ShowTimingEntryUser";
+}*@
+
+@model Book_Show_Entity.ShowTiming
+
+@{
+    Layout = "~/Views/Shared/UserPage.cshtml";
+}
+
+@*<div>
+    <hr />
+    <a asp-controller="ShowTiming" asp-action="Index">Show Timing</a>
+    <hr />
+
+</div>*@
+<form method="post" enctype="multipart/form-data">
+    <h2>Show Timing Entry</h2><hr />
+
+
+    <div class="form-group">
+        <label>Movie Id</label>
+        <input type="text" asp-for="MovieId" class="form-control" placeholder="enter a movie id" required />
+    </div>
+
+    @*  <div class="form-group">
+    <label>Theater Id</label>
+    <input type="text" asp-for="TheatreId" class="form-control" placeholder="enter a Theatre Id" required />
+    </div>*@
+    <div class="form-group">
+        <select class="selectpicker" data-style="btn-danger" asp-for="Theater.LocationId" asp-items="@ViewBag.Locationlist">
+           
+        </select>
+       
+    </div>
+
+   @* <div class="form-group">
+        <label>Show Time</label>
+        <input type="datetime-local" asp-for="ShowTime" class="form-control" placeholder="enter a Show Time" required />
+    </div>*@
+    <hr />
+    @* <a asp-controller="BookShow" class="btn btn-outline-secondary"  asp-action="BookShowEntry" asp-route-ShowTimingId="ShowTimingId">Submit</a>*@
+    @*<a asp-controller="BookShow" asp-action="BookShowEntry" class="btn btn-danger" asp-route-ShowTimingId="ShowTimingId">Book Show</a>*@
+    <input type="submit" value="Search" asp-controller="UserView" asp-action="SelectTheater" asp-route-LocationId="LocationId" class="btn btn-outline-success" />
+@*    <input type="reset" value="Reset" class="btn btn-outline-secondary" />
+    <a asp-controller="BookShow" class="btn btn-outline-secondary" asp-action="BookShowEntry" asp-route-bookshow="ShowTimingId">Next Page</a>*@
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">@ViewBag.message</div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">@ViewBag.message</div>
+    }
+</form>
+

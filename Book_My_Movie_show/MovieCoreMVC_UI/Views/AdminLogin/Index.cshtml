@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model Book_Show_Entity.Admin;
+@{
+    // ViewData["Title"] = "UserLogin";
+    Layout = "~/Views/Shared/LayoutLogin.cshtml";
+}
+
+@*<form method="post" enctype="multipart/form-data">
+    <h2>UserLogin</h2><hr />
+
+    <div class="form-group">
+        <label>UserEmail</label>
+        <input type="text" asp-for="UserEmail" class="form-control" placeholder="enter a UserEmail" required />
+    </div>
+    <div class="form-group">
+        <label>User password</label>
+        <input type="text" asp-for="UserPhoneNo" class="form-control" placeholder="enter a User password" required />
+    </div>
+
+
+    <hr />
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="reset" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">@ViewBag.message</div>
+
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">@ViewBag.message</div>
+    }
+</form>*@
+
+<section class="vh-100">
+    <div class="container-fluid" style="background-color:lightgray">
+        <div class="row">
+            <div class="col-sm-6 text-black">
+
+                <div class="px-5 ms-xl-4">
+                    <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color:mediumvioletred;"></i>
+                    @*<span class="h1 fw-bold mb-0">Login</span>*@
+                </div>
+
+                <form method="post" enctype="multipart/form-data" style="padding-top:250px;">
+                    <h2 style="height:50px">book<span style="color:red">My</span>show</h2><hr />
+
+                    <div class="form-group">
+                        <label>Admin Email</label>
+                        <input type="text" asp-for="AdminEmail" class="form-control" placeholder="enter a Admin Email" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Admin password</label>
+                        <input type="text" asp-for="AdminPassword" class="form-control" placeholder="enter a Admin password" required />
+                    </div>
+
+
+                    <hr />
+                    <input type="submit" value="Submit" class="btn btn-success" />
+                    <input type="reset" value="Forget Password" class="btn btn-secondary" />
+                    <hr />
+                    @if (ViewBag.status == "Ok")
+                    {
+                        <div class="alert alert-success">@ViewBag.message</div>
+
+                    }
+                    else if (ViewBag.status == "Error")
+                    {
+                        <div class="alert alert-danger">@ViewBag.message</div>
+                    }
+                </form>
+
+            </div>
+            <div class="col-sm-6 px-0 d-none d-sm-block">
+                <img src="https://mcginlaybell.com/wp-content/uploads/2019/09/140305_NORD-GFT_316-1280x1920.jpg"
+                     alt="Login image" class="w-120 vh-100 " style="object-fit: cover; object-position:left;">
+            </div>
+        </div>
+    </div>
+</section>
+

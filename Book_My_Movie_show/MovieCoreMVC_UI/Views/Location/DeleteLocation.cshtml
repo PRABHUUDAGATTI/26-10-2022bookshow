@@ -1,0 +1,26 @@
+﻿@model Book_Show_Entity.Location
+@{
+    ViewData["Title"] = "DeleteLocation";
+}
+
+<h1>DeleteLocation</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Delete Location</h2><hr />
+    <div class="form-group">
+        <label>Movie Id</label>
+        <input type="text" asp-for="LocationId" class="form-control" placeholder="enter a movie name" required />
+    </div>
+    <hr />
+    <input type="submit" value="Delete" class="btn btn-outline-success" />
+    <input type="reset" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">@ViewBag.message</div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">@ViewBag.message</div>
+    }
+</form>

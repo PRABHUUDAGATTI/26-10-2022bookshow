@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<center><div style="background-color:lightblue; "  >
+    <h1 class="display-4" >Book<span style="color:red">MY</span>Show</h1>
+    <form id="form">
+        <input type="search" id="query" name="q" placeholder="Search..." style="width:500px">
+        <button>Search</button>
+    </form>
+    </div>
+</center>
+    
+    <hr/>
+@model IEnumerable<Book_Show_Entity.Movie>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+@*<div class="row">
+    <div class="col-md-4" style="height:100px;">
+    <div class=" alert alert-success">Movie</div>
+    </div>
+    <div class="col-md-4"style="height:100px;background-color:aqua">
+        <div class="card">
+            <div class="card" style="width: 18rem;">
+                <img src="~/download.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="col-md-4"style="height:100px;background-color:red">Movie2</div>
+
+
+</div>*@
+
+@*<div>
+    <hr />
+    <a asp-controller="Movie" asp-action="MovieEntry">MovieEntry</a>
+    <hr />
+
+</div>*@
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        @* <div class="card col-1">
+    </div>*@
+        <div class="card col-3">
+            <img src="data:image/JPG;base64,@Convert.ToBase64String(item.ImgPoster)" style="height:350px" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@item.MovieName</h5>
+                <h5 class="card-title">@item.MovieLanguage</h5>
+
+                <p class="card-text">@item.MovieDesc.</p>
+                @*<a class="btn-outline-danger btn-block" asp-controller="BookShow" asp-action="BookShowEntry" asp-route-MovieId="@item.MovieId "><span style="color:white">Book Show</span></a>*@
+                <a asp-controller="ShowTiming" asp-action="ShowTimingEntry" class="btn btn-danger" asp-route-MovieId="@item.MovieId">Book Show</a>
+            </div>
+        </div>
+
+    }
+</div>
+   
+        
+
+ 
+   
+

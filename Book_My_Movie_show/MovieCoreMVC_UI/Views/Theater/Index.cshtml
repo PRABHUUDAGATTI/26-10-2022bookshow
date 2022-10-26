@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Book_Show_Entity.Theater>
+@{
+    ViewData["Title"] = "Index";
+}
+<div>
+<a asp-controller="Theater" asp-action="TheaterEntry">Theater Entry</a></div>
+
+<div class="row">
+    <div class="col-12">
+        <center><h3>Theater Details</h3></center>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Thaeater Id</th>
+                    <th>Theater Name</th>
+                    <th>LocationDesc</th>
+                    <th>Theater Comments</th>
+                    <th>User Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in Model)
+                {//default put as model it is keyword in MVC
+                 //@ we used to refer the csharp code
+                 //razer view compiler.it will convert the code to html understand file
+                    <tr>
+                        <td>@movie.TheatreId</td>
+                        <td>@movie.Name</td>
+                        <td>@movie.Location.LocationDesc</td>
+                        <td>@movie.LocationId</td>
+                       <td>@movie.Comment</td>
+                        <td><a asp-controller="Theater" asp-action="EditTheater" asp-route-TheaterId="@movie.TheatreId">Edit</a></td>
+                        <td><a asp-controller="Theater" asp-action="DeleteTheater" asp-route-TheaterId="@movie.TheatreId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

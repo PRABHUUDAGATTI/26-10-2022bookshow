@@ -1,0 +1,47 @@
+﻿@model Book_Show_Entity.Movie
+@{
+    ViewData["Title"] = "MovieEntry";
+}
+
+<div>
+    <hr />
+    <a asp-controller="Location" asp-action="Index">Movie</a>
+    <hr />
+
+</div>
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Movie Name</label>
+        <input type="text" asp-for="MovieName" class="form-control" placeholder="enter a movie name" required/>
+    </div>
+
+    <div class="form-group">
+        <label>Movie Type</label>
+        <input type="text" asp-for="MovieType" class="form-control" placeholder="enter a movie type" required />
+    </div>
+
+    <div class="form-group">
+        <label>Movie Desc</label>
+       <input type="text" asp-for="MovieDesc" class="form-control" placeholder="enter a movie Desc" required />
+    </div>
+    <div class="form-group">
+        <label>Movie Language</label>
+        <select asp-for="MovieLanguage" asp-items="@ViewBag.languagelist"></select>
+    </div>
+    <div class="form-group">
+        <label>Movie Poster</label>
+        <input type="file" id="poster" name="poster" class="form-control" required />
+    </div>
+    <hr />
+    <input type="submit" value="Save" class="btn btn-outline-success"/>
+    <input type="reset" value="Reset" class="btn btn-outline-secondary" />
+    <hr/>
+    @if(ViewBag.status=="Ok"){
+        <div class="alert alert-success">@ViewBag.message</div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">@ViewBag.message</div>
+    }
+</form>
+

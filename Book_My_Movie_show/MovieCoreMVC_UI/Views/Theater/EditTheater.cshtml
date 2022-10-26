@@ -1,0 +1,40 @@
+﻿@model Book_Show_Entity.Theater
+@{
+    ViewData["Title"] = "EditTheater";
+}
+
+<h1>EditTheater</h1>
+
+<form method="post" enctype="multipart/form-data">
+    <h2>Theater Entry</h2><hr />
+    <div class="form-group">
+        <label>Add Location</label>
+        <input type="text" asp-for="TheatreId" class="form-control" placeholder="enter a Theater id" required />
+    </div>
+    <div class="form-group">
+        <label>Add Location</label>
+        <input type="text" asp-for="Name" class="form-control" placeholder="enter a Theater name" required />
+    </div>
+    <div class="form-group">
+        <label>Theater Comment</label>
+        <input type="text" asp-for="Comment" class="form-control" placeholder="enter a Theater Comment" required />
+    </div>
+    <div class="form-group">
+        <label>Theater LocationId</label>
+        <input type="text" asp-for="LocationId" class="form-control" placeholder="enter a Location Id" required />
+    </div>
+
+
+    <hr />
+    <input type="submit" value="Save" class="btn btn-outline-success" />
+    <input type="reset" value="Reset" class="btn btn-outline-secondary" />
+    <hr />
+    @if (ViewBag.status == "Ok")
+    {
+        <div class="alert alert-success">@ViewBag.message</div>
+    }
+    else if (ViewBag.status == "Error")
+    {
+        <div class="alert alert-danger">@ViewBag.message</div>
+    }
+</form>
